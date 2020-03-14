@@ -26,5 +26,10 @@ namespace BugLoggerC.Services
       }
       return exists;
     }
+
+    internal Bug CreateBug(Bug newBug)
+    {
+      return _repo.CreateBug(newBug);
+    }
   }
 }

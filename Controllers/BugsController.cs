@@ -39,5 +39,17 @@ namespace BugLoggerC.Controlelrs
         return BadRequest(e.Message);
       }
     }
+    [HttpPost]
+    public ActionResult<Bug> CreateBug([FromBody] Bug newBug)
+    {
+      try
+      {
+        return Ok(_bs.CreateBug(newBug));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
