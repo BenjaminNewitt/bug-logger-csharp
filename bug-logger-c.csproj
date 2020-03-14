@@ -5,5 +5,9 @@
     <RootNamespace>bug_logger_c</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="mysqlconnector" Version="0.62.0" />
+  </ItemGroup>
+
 
 </Project>
