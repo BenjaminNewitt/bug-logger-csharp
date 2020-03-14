@@ -25,5 +25,10 @@ namespace BugLoggerC.Repositories
     {
       throw new NotImplementedException();
     }
+
+    internal void DeleteBug(int id)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

@@ -63,5 +63,17 @@ namespace BugLoggerC.Controlelrs
         return BadRequest(e.Message);
       }
     }
+    [HttpDelete("{id")]
+    public ActionResult<string> DeleteBug(int id)
+    {
+      try
+      {
+        return Ok(_bs.DeleteBug(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }

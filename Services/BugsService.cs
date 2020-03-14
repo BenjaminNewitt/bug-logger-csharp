@@ -42,5 +42,16 @@ namespace BugLoggerC.Services
       _repo.EditBug(update);
       return update;
     }
+
+    internal string DeleteBug(int id)
+    {
+      Bug exists = _repo.GetBugById(id);
+      if (exists == null || exists.IsClosed == true)
+      {
+        throw new Exception("Invalid Request");
+      }
+      _repo.DeleteBug(id);
+      return "Successfully Closed";
+    }
   }
 }
