@@ -31,5 +31,16 @@ namespace BugLoggerC.Services
     {
       return _repo.CreateBug(newBug);
     }
+
+    internal Bug EditBug(Bug update)
+    {
+      Bug exists = _repo.GetBugById(update.Id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Request");
+      }
+      _repo.EditBug(update);
+      return update;
+    }
   }
 }

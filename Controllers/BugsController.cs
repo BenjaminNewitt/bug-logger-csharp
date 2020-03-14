@@ -51,5 +51,17 @@ namespace BugLoggerC.Controlelrs
         return BadRequest(e.Message);
       }
     }
+    [HttpPut("{id}")]
+    public ActionResult<Bug> EditBug([FromBody] Bug BugData)
+    {
+      try
+      {
+        return Ok(_bs.EditBug(BugData));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }

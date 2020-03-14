@@ -20,5 +20,10 @@ namespace BugLoggerC.Repositories
     {
       throw new NotImplementedException();
     }
+
+    internal void EditBug(Bug update)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
