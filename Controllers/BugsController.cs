@@ -16,11 +16,23 @@ namespace BugLoggerC.Controlelrs
       _bs = bs;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<Bug>> Get()
+    public ActionResult<IEnumerable<Bug>> GetAllBugs()
     {
       try
       {
         return Ok(_bs.Get());
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+    [HttpGet("{id}")]
+    public ActionResult<Bug> GetBugById(int id)
+    {
+      try
+      {
+        return Ok(_bs.GetBugById(id));
       }
       catch (Exception e)
       {

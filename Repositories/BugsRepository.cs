@@ -6,7 +6,12 @@ namespace BugLoggerC.Repositories
 {
   public class BugsRepository
   {
-    internal IEnumerable<Bug> Get()
+    internal IEnumerable<Bug> GetAllBugs()
+    {
+      throw new NotImplementedException();
+    }
+
+    internal Bug GetBugById(int id)
     {
       throw new NotImplementedException();
     }

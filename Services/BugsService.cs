@@ -14,7 +14,17 @@ namespace BugLoggerC.Services
     }
     internal IEnumerable<Bug> Get()
     {
-      return _repo.Get();
+      return _repo.GetAllBugs();
+    }
+
+    internal Bug GetBugById(int id)
+    {
+      Bug exists = _repo.GetBugById(id);
+      if (exists == null)
+      {
+        throw new Exception("Invalid ID");
+      }
+      return exists;
     }
   }
 }
