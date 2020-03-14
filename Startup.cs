@@ -29,6 +29,20 @@ namespace bug_logger_c
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddCors(options =>
+    {
+      options.AddPolicy("CorsDevPolicy", builder =>
+            {
+              builder
+                        .WithOrigins(new string[]{
+                            "http://localhost:8080"
+                    })
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+            });
+    });
+
       services.AddControllers();
 
       services.AddTransient<BugsService>();
@@ -47,18 +61,23 @@ namespace bug_logger_c
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+        app.UseCors("CorsDevPolicy");
       }
-
-      app.UseHttpsRedirection();
-
-      app.UseRouting();
-
-      app.UseAuthorization();
-
-      app.UseEndpoints(endpoints =>
+      else
       {
-        endpoints.MapControllers();
-      });
+        app.UseHsts();
+
+        app.UseHttpsRedirection();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+          endpoints.MapControllers();
+        });
+      }
     }
   }
 }
