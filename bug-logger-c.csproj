@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper.Extensions.NetCore" Version="3.1.0" />
     <PackageReference Include="mysqlconnector" Version="0.62.0" />
   </ItemGroup>
 
