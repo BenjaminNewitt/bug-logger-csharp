@@ -9,6 +9,5 @@ namespace BugLoggerC.Models
     public string Description { get; set; }
     public string Title { get; set; }
     public string ReportedBy { get; set; }
-    public DateTime closedDate { get; set; }
   }
 }
