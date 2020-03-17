@@ -30,7 +30,11 @@ namespace BugLoggerC.Repositories
 
     internal Bug CreateBug(Bug newBug)
     {
-      throw new NotImplementedException();
+      string sql = @"INSERT INTO bugs (title, description, reportedBy, isClosed;
+      SELECT LAST_INSERT_ID();";
+      int id = _db.ExecuteScalar<int>(sql, newBug);
+      newBug.Id = id;
+      return newBug;
     }
 
     internal void EditBug(Bug update)
